@@ -2,15 +2,13 @@ services:
   - type: web
     name: jira-lite-api
     env: docker
-    rootDir: backend
+    rootDir: jira-lite/backend
     dockerfilePath: Dockerfile
     healthCheckPath: /health
 
   - type: static
     name: jira-lite-ui
-    rootDir: frontend
+    rootDir: jira-lite/frontend
     buildCommand: npm install && npm run build
     staticPublishPath: dist
-    envVars:
-      - key: VITE_API_BASE_URL
-        value: https://jira-lite-api.onrender.com
+
