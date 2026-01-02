@@ -1,15 +1,10 @@
 services:
   - type: web
     name: jira-lite-api
-    env: python
+    env: docker
     rootDir: backend
-    buildCommand: pip install -r requirements.txt
-    startCommand: ./start.sh
-    envVars:
-      - key: DATABASE_URL
-        sync: false
-      - key: JWT_SECRET
-        sync: false
+    dockerfilePath: Dockerfile
+    healthCheckPath: /health
 
   - type: static
     name: jira-lite-ui
