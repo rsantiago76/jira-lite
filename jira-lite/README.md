@@ -52,8 +52,7 @@ VITE_API_BASE_URL=https://<your-api>
 # Frontend (add vitest/playwright as you implement)
 ```
 
-## 📸 Screenshots / GIF
-- Add screenshots or a short demo GIF here to make the project recruiter-friendly.
+
 
 ## 🧠 Design Notes
 - Add short notes about tradeoffs, API contracts, and security decisions.
