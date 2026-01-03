@@ -10,27 +10,10 @@
 ## 🧱 Architecture
 - React (Render Static Site) → calls Python API (Render Web Service)
 - Python API → PostgreSQL (Render Postgres)
-- 
-+--------------------+        HTTPS        +---------------------+
-|                    |  Encrypted Payload  |                     |
-|   React Frontend   |------------------->|   Python API        |
-|  (Static Site)     |                    |  (Web Service)      |
-|                    |<-------------------|                     |
-|  - Encrypts notes  |   Ciphertext Only  |  - Auth (JWT)       |
-|  - Decrypts notes  |                    |  - Stores metadata  |
-|                    |                    |  - Never sees data  |
-+---------+----------+                    +----------+----------+
-          |                                            |
-          |                                            |
-          |                                            |
-          v                                            v
-+--------------------+                    +---------------------+
-|  Browser Storage   |                    |   PostgreSQL DB     |
-|  (Keys / Session)  |                    |                     |
-|                    |                    | - Encrypted notes   |
-| - Encryption keys  |                    | - User metadata     |
-| - Never uploaded   |                    | - Access controls   |
-+--------------------+                    +---------------------+
+
+  <img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/97348aa2-748a-4760-831d-b1f36334783c" />
+
+
 
 
 ## 🛠 Tech Stack
