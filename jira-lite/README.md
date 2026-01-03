@@ -10,7 +10,28 @@
 ## 🧱 Architecture
 - React (Render Static Site) → calls Python API (Render Web Service)
 - Python API → PostgreSQL (Render Postgres)
-- Optional: background worker later if needed
+- 
++--------------------+        HTTPS        +---------------------+
+|                    |  Encrypted Payload  |                     |
+|   React Frontend   |------------------->|   Python API        |
+|  (Static Site)     |                    |  (Web Service)      |
+|                    |<-------------------|                     |
+|  - Encrypts notes  |   Ciphertext Only  |  - Auth (JWT)       |
+|  - Decrypts notes  |                    |  - Stores metadata  |
+|                    |                    |  - Never sees data  |
++---------+----------+                    +----------+----------+
+          |                                            |
+          |                                            |
+          |                                            |
+          v                                            v
++--------------------+                    +---------------------+
+|  Browser Storage   |                    |   PostgreSQL DB     |
+|  (Keys / Session)  |                    |                     |
+|                    |                    | - Encrypted notes   |
+| - Encryption keys  |                    | - User metadata     |
+| - Never uploaded   |                    | - Access controls   |
++--------------------+                    +---------------------+
+
 
 ## 🛠 Tech Stack
 - Frontend: React + Vite
